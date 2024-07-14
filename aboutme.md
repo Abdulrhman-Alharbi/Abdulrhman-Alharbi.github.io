@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Abdulrahman Alharbi's CV
 ---
 
 My name is Abdulrhman Alharbi. I have the following qualities
