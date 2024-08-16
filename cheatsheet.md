@@ -3,6 +3,8 @@ layout: page
 title: Cheat Sheet
 ---
 
+<details>
+<summary>nmap</summary>
 
 ### Scanning Options
 
@@ -55,6 +57,9 @@ title: Cheat Sheet
 | `--max-rtt-timeout 100ms` | Maximum RTT timeout. |
 | `--min-rate 300` | Minimum packet rate. |
 | `-T <0-5>` | Timing template. |
+
+</details>
+
 
 ### Infrastructure-based Enumeration
 
