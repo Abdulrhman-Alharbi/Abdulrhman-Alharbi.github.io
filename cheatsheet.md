@@ -5,5 +5,11 @@ subtitle: cheat sheet for all
 ---
 
 
-hell
-namp
+Here's a table:
+
+| code | Next number | Previous number |
+| :------ |:--- | :--- |
+| Five | Six | Four |
+| Ten | Eleven | Nine |
+| Seven | Eight | Six |
+| Two | Three | One |
