@@ -3,6 +3,8 @@ layout: page
 title: Cheat Sheet
 ---
 
+# Cheat Sheet
+
 <details>
 <summary>nmap</summary>
 
@@ -60,17 +62,20 @@ title: Cheat Sheet
 
 </details>
 
-
-### Infrastructure-based Enumeration
+<details>
+<summary>Infrastructure-based Enumeration</summary>
 
 | Command | Description |
 | :------ |:--- |
 | `curl -s https://crt.sh/?q=<target-domain>&output=json | jq .` | Certificate transparency. |
 | `for i in $(cat ip-addresses.txt); do shodan host $i; done` | Scan each IP address in a list using Shodan. |
 
-### Host-based Enumeration
+</details>
 
-#### FTP
+<details>
+<summary>Host-based Enumeration</summary>
+
+### FTP
 
 | Command | Description |
 | :------ |:--- |
@@ -80,7 +85,7 @@ title: Cheat Sheet
 | `openssl s_client -connect <FQDN/IP>:21 -starttls ftp` | Interact with the FTP service on the target using an encrypted connection. |
 | `wget -m --no-passive ftp://anonymous:anonymous@<target>` | Download all available files on the target FTP server. |
 
-#### SMB
+### SMB
 
 | Command | Description |
 | :------ |:--- |
@@ -92,7 +97,7 @@ title: Cheat Sheet
 | `crackmapexec smb <FQDN/IP> --shares -u '' -p ''` | Enumerating SMB shares using null session authentication. |
 | `enum4linux-ng.py <FQDN/IP> -A` | SMB enumeration using enum4linux. |
 
-#### NFS
+### NFS
 
 | Command | Description |
 | :------ |:--- |
@@ -100,7 +105,7 @@ title: Cheat Sheet
 | `mount -t nfs <FQDN/IP>:/<share> ./target-NFS/ -o nolock` | Mount the specific NFS share. |
 | `umount ./target-NFS` | Unmount the specific NFS share. |
 
-#### DNS
+### DNS
 
 | Command | Description |
 | :------ |:--- |
@@ -109,13 +114,13 @@ title: Cheat Sheet
 | `dig axfr <domain.tld> @<nameserver>` | AXFR request to the specific nameserver. |
 | `dnsenum --dnsserver <nameserver> --enum -p 0 -s 0 -o found_subdomains.txt -f ~/subdomains.list <domain.tld>` | Subdomain brute forcing. |
 
-#### SMTP
+### SMTP
 
 | Command | Description |
 | :------ |:--- |
 | `telnet <FQDN/IP> 25` | Interact with the SMTP service on the target. |
 
-#### IMAP/POP3
+### IMAP/POP3
 
 | Command | Description |
 | :------ |:--- |
@@ -123,7 +128,7 @@ title: Cheat Sheet
 | `openssl s_client -connect <FQDN/IP>:imaps` | Connect to the IMAPS service. |
 | `openssl s_client -connect <FQDN/IP>:pop3s` | Connect to the POP3s service. |
 
-#### SNMP
+### SNMP
 
 | Command | Description |
 | :------ |:--- |
@@ -131,26 +136,26 @@ title: Cheat Sheet
 | `onesixtyone -c community-strings.list <FQDN/IP>` | Brute force community strings of the SNMP service. |
 | `braa <community string>@<FQDN/IP>:.1.*` | Brute force SNMP service OIDs. |
 
-#### MySQL
+### MySQL
 
 | Command | Description |
 | :------ |:--- |
 | `mysql -u <user> -p<password> -h <FQDN/IP>` | Login to the MySQL server. |
 
-#### MSSQL
+### MSSQL
 
 | Command | Description |
 | :------ |:--- |
 | `mssqlclient.py <user>@<FQDN/IP> -windows-auth` | Log in to the MSSQL server using Windows authentication. |
 
-#### IPMI
+### IPMI
 
 | Command | Description |
 | :------ |:--- |
 | `msf6 auxiliary(scanner/ipmi/ipmi_version)` | IPMI version detection. |
 | `msf6 auxiliary(scanner/ipmi/ipmi_dumphashes)` | Dump IPMI hashes. |
 
-#### Linux Remote Management
+### Linux Remote Management
 
 | Command | Description |
 | :------ |:--- |
@@ -159,7 +164,7 @@ title: Cheat Sheet
 | `ssh -i private.key <user>@<FQDN/IP>` | Log in to the SSH server using a private key. |
 | `ssh <user>@<FQDN/IP> -o PreferredAuthentications=password` | Enforce password-based authentication. |
 
-#### Windows Remote Management
+### Windows Remote Management
 
 | Command | Description |
 | :------ |:--- |
@@ -168,11 +173,9 @@ title: Cheat Sheet
 | `evil-winrm -i <FQDN/IP> -u <user> -p <password>` | Log in to the WinRM server. |
 | `wmiexec.py <user>:"<password>"@<FQDN/IP> "<system command>"` | Execute a command using the WMI service. |
 
-#### Oracle TNS
+### Oracle TNS
 
 | Command | Description |
 | :------ |:--- |
 | `./odat.py all -s <FQDN/IP>` | Perform a variety of scans to gather information about the Oracle database services and its components. |
-| `sqlplus <user>/<pass>@<FQDN/IP>/<db>` | Log in to the Oracle database. |
-| `./odat.py utlfile -s <FQDN/IP> -d <db> -U <user> -P <pass> --sysdba --putFile C:\\insert\\path file.txt ./file.txt` | Upload a file to Oracle RDBMS. |
-
+| `sqlplus
