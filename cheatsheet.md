@@ -3,11 +3,9 @@ layout: page
 title: Cheat Sheet
 ---
 
-# Cheat Sheet
-
 ## nmap
 
-### Scanning Options
+### Nmap Scanning Options
 
 | Code | Description |
 | :------ |:--- |
@@ -38,7 +36,7 @@ title: Cheat Sheet
 | `-g` | Specifies source port. |
 | `--dns-server <ns>` | Uses specified DNS server for resolution. |
 
-### Output Options
+### Nmap Output Options
 
 | Code | Description |
 | :------ |:--- |
@@ -47,7 +45,7 @@ title: Cheat Sheet
 | `-oG filename` | Grepable format. |
 | `-oX filename` | XML format. |
 
-### Performance Options
+### Nmap Performance Options
 
 | Code | Description |
 | :------ |:--- |
@@ -60,8 +58,6 @@ title: Cheat Sheet
 | `-T <0-5>` | Timing template. |
 
 ## Infrastructure-based Enumeration
-
-### Commands
 
 | Command | Description |
 | :------ |:--- |
