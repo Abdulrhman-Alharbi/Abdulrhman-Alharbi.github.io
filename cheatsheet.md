@@ -5,10 +5,10 @@ title: Cheat Sheet
 
 # Cheat Sheet
 
-<details>
-<summary>nmap</summary>
+## nmap
 
-### Scanning Options
+<details>
+<summary>Scanning Options</summary>
 
 | Code | Description |
 | :------ |:--- |
@@ -39,7 +39,10 @@ title: Cheat Sheet
 | `-g` | Specifies source port. |
 | `--dns-server <ns>` | Uses specified DNS server for resolution. |
 
-### Output Options
+</details>
+
+<details>
+<summary>Output Options</summary>
 
 | Code | Description |
 | :------ |:--- |
@@ -48,7 +51,10 @@ title: Cheat Sheet
 | `-oG filename` | Grepable format. |
 | `-oX filename` | XML format. |
 
-### Performance Options
+</details>
+
+<details>
+<summary>Performance Options</summary>
 
 | Code | Description |
 | :------ |:--- |
@@ -62,8 +68,10 @@ title: Cheat Sheet
 
 </details>
 
+## Infrastructure-based Enumeration
+
 <details>
-<summary>Infrastructure-based Enumeration</summary>
+<summary>Commands</summary>
 
 | Command | Description |
 | :------ |:--- |
@@ -72,10 +80,10 @@ title: Cheat Sheet
 
 </details>
 
-<details>
-<summary>Host-based Enumeration</summary>
+## Host-based Enumeration
 
-### FTP
+<details>
+<summary>FTP</summary>
 
 | Command | Description |
 | :------ |:--- |
@@ -85,7 +93,10 @@ title: Cheat Sheet
 | `openssl s_client -connect <FQDN/IP>:21 -starttls ftp` | Interact with the FTP service on the target using an encrypted connection. |
 | `wget -m --no-passive ftp://anonymous:anonymous@<target>` | Download all available files on the target FTP server. |
 
-### SMB
+</details>
+
+<details>
+<summary>SMB</summary>
 
 | Command | Description |
 | :------ |:--- |
@@ -97,7 +108,10 @@ title: Cheat Sheet
 | `crackmapexec smb <FQDN/IP> --shares -u '' -p ''` | Enumerating SMB shares using null session authentication. |
 | `enum4linux-ng.py <FQDN/IP> -A` | SMB enumeration using enum4linux. |
 
-### NFS
+</details>
+
+<details>
+<summary>NFS</summary>
 
 | Command | Description |
 | :------ |:--- |
@@ -105,7 +119,10 @@ title: Cheat Sheet
 | `mount -t nfs <FQDN/IP>:/<share> ./target-NFS/ -o nolock` | Mount the specific NFS share. |
 | `umount ./target-NFS` | Unmount the specific NFS share. |
 
-### DNS
+</details>
+
+<details>
+<summary>DNS</summary>
 
 | Command | Description |
 | :------ |:--- |
@@ -114,13 +131,19 @@ title: Cheat Sheet
 | `dig axfr <domain.tld> @<nameserver>` | AXFR request to the specific nameserver. |
 | `dnsenum --dnsserver <nameserver> --enum -p 0 -s 0 -o found_subdomains.txt -f ~/subdomains.list <domain.tld>` | Subdomain brute forcing. |
 
-### SMTP
+</details>
+
+<details>
+<summary>SMTP</summary>
 
 | Command | Description |
 | :------ |:--- |
 | `telnet <FQDN/IP> 25` | Interact with the SMTP service on the target. |
 
-### IMAP/POP3
+</details>
+
+<details>
+<summary>IMAP/POP3</summary>
 
 | Command | Description |
 | :------ |:--- |
@@ -128,7 +151,10 @@ title: Cheat Sheet
 | `openssl s_client -connect <FQDN/IP>:imaps` | Connect to the IMAPS service. |
 | `openssl s_client -connect <FQDN/IP>:pop3s` | Connect to the POP3s service. |
 
-### SNMP
+</details>
+
+<details>
+<summary>SNMP</summary>
 
 | Command | Description |
 | :------ |:--- |
@@ -136,26 +162,38 @@ title: Cheat Sheet
 | `onesixtyone -c community-strings.list <FQDN/IP>` | Brute force community strings of the SNMP service. |
 | `braa <community string>@<FQDN/IP>:.1.*` | Brute force SNMP service OIDs. |
 
-### MySQL
+</details>
+
+<details>
+<summary>MySQL</summary>
 
 | Command | Description |
 | :------ |:--- |
 | `mysql -u <user> -p<password> -h <FQDN/IP>` | Login to the MySQL server. |
 
-### MSSQL
+</details>
+
+<details>
+<summary>MSSQL</summary>
 
 | Command | Description |
 | :------ |:--- |
 | `mssqlclient.py <user>@<FQDN/IP> -windows-auth` | Log in to the MSSQL server using Windows authentication. |
 
-### IPMI
+</details>
+
+<details>
+<summary>IPMI</summary>
 
 | Command | Description |
 | :------ |:--- |
 | `msf6 auxiliary(scanner/ipmi/ipmi_version)` | IPMI version detection. |
 | `msf6 auxiliary(scanner/ipmi/ipmi_dumphashes)` | Dump IPMI hashes. |
 
-### Linux Remote Management
+</details>
+
+<details>
+<summary>Linux Remote Management</summary>
 
 | Command | Description |
 | :------ |:--- |
@@ -164,18 +202,9 @@ title: Cheat Sheet
 | `ssh -i private.key <user>@<FQDN/IP>` | Log in to the SSH server using a private key. |
 | `ssh <user>@<FQDN/IP> -o PreferredAuthentications=password` | Enforce password-based authentication. |
 
-### Windows Remote Management
+</details>
 
-| Command | Description |
-| :------ |:--- |
-| `rdp-sec-check.pl <FQDN/IP>` | Check the security settings of the RDP service. |
-| `xfreerdp /u:<user> /p:"<password>" /v:<FQDN/IP>` | Log in to the RDP server from Linux. |
-| `evil-winrm -i <FQDN/IP> -u <user> -p <password>` | Log in to the WinRM server. |
-| `wmiexec.py <user>:"<password>"@<FQDN/IP> "<system command>"` | Execute a command using the WMI service. |
+<details>
+<summary>Windows Remote Management</summary>
 
-### Oracle TNS
-
-| Command | Description |
-| :------ |:--- |
-| `./odat.py all -s <FQDN/IP>` | Perform a variety of scans to gather information about the Oracle database services and its components. |
-| `sqlplus
+| Command
